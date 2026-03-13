@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guess the Number</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>🎮 Guess the Number (1-100)</h1>
+
+<form method="post" action="/guess">
+<input name="username" placeholder="Username" value="{{ username }}" required>
+<input name="number" type="number" min="1" max="100" required>
+<button type="submit">Guess</button>
+</form>
+
+<h2>{{ message }}</h2>
+
+<h3>Leaderboard</h3>
+
+<table>
+<tr>
+<th>User</th>
+<th>Attempts</th>
+</tr>
+
+{% for user, tries in scores %}
+<tr>
+<td>{{ user }}</td>
+<td>{{ tries }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
